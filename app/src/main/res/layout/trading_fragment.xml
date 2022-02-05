@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:context=".trading_fragment">
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#EE6855"
+            android:text="Confirm"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="#EE6855"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/btnConfirm"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextCurrentBalance"
+            android:layout_width="176dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="0.00"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.759"
+            app:layout_constraintStart_toEndOf="@+id/currentBalanceUSD"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
+        <EditText
+            android:id="@+id/editTextMaxCurrency"
+            android:layout_width="176dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="14dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="0.00"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.759"
+            app:layout_constraintStart_toEndOf="@+id/maxPossibleAmount"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCurrentBalance" />
+
+        <EditText
+            android:id="@+id/editTextEnterUSD"
+            android:layout_width="176dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="14dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="0.00"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.759"
+            app:layout_constraintStart_toEndOf="@+id/txtAmountToBuy"
+            app:layout_constraintTop_toBottomOf="@+id/editTextMaxCurrency" />
+
+        <EditText
+            android:id="@+id/editTextAmountReceived"
+            android:layout_width="176dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="14dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="0.00"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.759"
+            app:layout_constraintStart_toEndOf="@+id/txtCurrencyAmount"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEnterUSD" />
+        <!--- this is for the buy side -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_settings"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="234dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/graph">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rbBuy"
+                android:layout_width="117dp"
+                android:layout_height="28dp"
+                android:background="@drawable/radio_button_left_selector"
+                android:button="@color/black"
+                android:checked="true"
+                android:elevation="4dp"
+                android:text="Buy"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <!--android:onClick="onRadioButtonClicked"-->/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rbSell"
+                android:layout_width="117dp"
+                android:layout_height="28dp"
+                android:background="@drawable/radio_button_right_selector"
+                android:button="@color/white"
+                android:checked="false"
+                android:text="Sell"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <!--android:onClick="onRadioButtonClicked"-->/>
+        </RadioGroup>
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="40dp"
+            android:text="Trading"
+            android:textColor="#17171A"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/currentBalanceUSD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Current Balance(USD)"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <TextView
+            android:id="@+id/maxPossibleAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Max Currency With Current Balance"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentBalanceUSD" />
+
+        <TextView
+            android:id="@+id/txtAmountToBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Enter USD Amount"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/maxPossibleAmount" />
+
+        <TextView
+            android:id="@+id/txtCurrencyAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Amount Received"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAmountToBuy" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/currentBalanceUSD"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/maxPossibleAmount"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/txtAmountToBuy"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/txtCurrencyAmount"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRVCurrencyNames"
+            android:layout_width="323dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRVCurrencyInfoTrading"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idRVCurrencyNames" />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graph"
+            android:layout_width="320dp"
+            android:layout_height="270dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idRVCurrencyInfoTrading" />
+
+        <!--- this is for the sell side -->
+
+        <TextView
+            android:id="@+id/txtSellCurrentAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Current Currency Amount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSellCurrentAmount" />
+
+        <TextView
+            android:id="@+id/txtSellCurrencyUSD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Currency in USD"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
