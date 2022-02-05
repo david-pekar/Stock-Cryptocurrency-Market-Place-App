@@ -80,7 +80,7 @@ public class view_all extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String,String> headers = new HashMap<>();
-                headers.put("X-CMC_PRO_API_KEY","91a9ca08-61cc-4b01-99c1-e1cff7841965");
+                headers.put("X-CMC_PRO_API_KEY","Val");
                 return headers;
             }
         };
