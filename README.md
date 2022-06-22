@@ -1,4 +1,4 @@
-# Cryptocurrency-Market-Place-App
+# Stock/Cryptocurrency-Market-Place-App
 <table>
   <tr>
     <td>Splash Screen</td>
